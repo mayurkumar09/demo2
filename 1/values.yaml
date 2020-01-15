@@ -1,0 +1,25 @@
+# Default values for 1.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+labels:
+  app: image-processing
+  
+replicaCount: 4
+fullname: image-processing-deployment
+image:
+  repository: mayursuccessive/image-processing
+  tag: latest
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: my-service
+
+
+service:
+  type: NodePort
+  port: 80
+
+

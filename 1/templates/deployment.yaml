@@ -1,0 +1,24 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: {{ .Values.labels.app }}
+  name: {{ .Values.fullname }}
+spec: 
+  replicas: {{ .Values.replicaCount }}
+  selector: 
+    matchLabels: 
+      app: image-processing
+  template: 
+    metadata: 
+      labels: 
+        app: image-processing
+    spec: 
+      containers: 
+        - 
+          image: {{ .Values.image.repository }}
+          name: image-processing
+          ports:
+            - containerPort: 80
+        

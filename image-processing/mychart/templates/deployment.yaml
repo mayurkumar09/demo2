@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mychart.fullname" . }}
+  labels:
+    app: image-processing
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+       app: image-processing
+#      app.kubernetes.io/name: {{ include "mychart.name" . }}
+#      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+	      app: image-processing
+#        app.kubernetes.io/name: {{ include "mychart.name" . }}
+#        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ template "mychart.serviceAccountName" . }}
+      
+      containers:
+        - name: image-processing
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
+       
