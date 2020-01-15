@@ -12,6 +12,7 @@ events.on("push", () => {
     "ls -lrt",
     "pwd",
 
+
 //    "docker build -t packageimage:latest ."
   ];
 
