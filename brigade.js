@@ -5,8 +5,8 @@ events.on("push", () => {
   var job = new Job("dockerbuild", "kshitizsh12/base:v1");
   job.privileged = true;
   job.tasks = [
+    "uname -a",
     "sudo su",
-    "/sbin/iptables -w -t nat -n -L DOCKER",
     "sleep 15",
     "dockerd &",
     "sleep 5",
