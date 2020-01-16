@@ -3,12 +3,13 @@
 const { events, Job } = require("brigadier");
 events.on("push", () => {
   var job = new Job("dockerbuild", "docker:dind");
+  job.privileged = true;
   job.tasks = [
     "echo Hello",
     "echo World",
     "cd /src/image-processing",
-    "sudo docker build -t packageimage:latest .",
-    "sudo docker images"
+    "docker build -t packageimage:latest .",
+    "docker images"
 
   ];
 
