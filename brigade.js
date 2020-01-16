@@ -12,7 +12,10 @@ events.on("push", () => {
   job.tasks = [
     "echo Hello",
     "echo World",
-    // "dockerd-entrypoint.sh &",
+    "dockerd-entrypoint.sh &",
+    "export DOCKERD_PID=$!",
+    `printf "waiting for docker daemon"; while ! docker info >/dev/null 2>&1; do printf .; sleep 1; done; echo
+
   //  "dockerd &",
     "sleep 20",
     "cd /src/image-processing",
