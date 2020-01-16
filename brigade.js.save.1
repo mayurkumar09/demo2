@@ -1,0 +1,14 @@
+
+const { events, Job } = require("brigadier");
+events.on("push", () => {
+  var job = new Job("package", "alpine:3.8");
+  job.tasks = [
+    "echo Hello",
+    "echo World",
+	"cd /home/mayur.kumar/kt/image-processing/image-processing",
+	"sudo docker build -t ."
+  ];
+
+
+  job.run();
+});
