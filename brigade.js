@@ -5,7 +5,7 @@ events.on("push", () => {
   var job = new Job("dockerbuild", "docker:dind");
   job.privileged = true;
   docker.env = {
-  DOCKER_DRIVER: driver overlay
+  DOCKER_DRIVER: overlay
   }  
 
   job.tasks = [
