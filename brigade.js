@@ -4,7 +4,7 @@ const { events, Job } = require("brigadier");
 events.on("push", () => {
   var job = new Job("dockerbuild", "docker:dind");
   job.privileged = true;
-  docker.env = {
+  job.env = {
   DOCKER_DRIVER: overlay
   }  
 
