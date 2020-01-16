@@ -12,7 +12,7 @@ events.on("push", () => {
   job.tasks = [
     "echo Hello",
     "echo World",
-    "dockerd-entrypoint.sh &",
+    // "dockerd-entrypoint.sh &",
   //  "dockerd &",
     "sleep 20",
     "cd /src/image-processing",
