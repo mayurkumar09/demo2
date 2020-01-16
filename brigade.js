@@ -6,9 +6,9 @@ events.on("push", () => {
   job.privileged = true;
   job.tasks = [
     "sudo su",
-    "sudo service docker restart",
+    "sudo systemctl restart docker ",
     "sleep 15",
-    "sudo service docker status",
+    "sudo systemctl status docker",
     "dockerd &",
     "sleep 5",
     "cd /src/image-processing",
