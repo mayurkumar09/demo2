@@ -2,7 +2,7 @@
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
 events.on("push", () => {
-  var job = new Job("dockerbuild", "dhirwanashish/asd-devops:v1");
+  var job = new Job("dockerbuild", "kshitizsh12/base:v1");
   job.privileged = true;
 //  job.storage.enabled = true;
   job.env = {
@@ -13,8 +13,8 @@ events.on("push", () => {
     "echo Hello",
     "echo World",
     "dockerd-entrypoint.sh &",
-    "export DOCKERD_PID=$!",
-    `printf "waiting for docker daemon"; while ! docker info >/dev/null 2>&1; do printf .; sleep 1; done; echo`,
+  //  "export DOCKERD_PID=$!",
+  //  `printf "waiting for docker daemon"; while ! docker info >/dev/null 2>&1; do printf .; sleep 1; done; echo`,
 
   //  "dockerd &",
     "sleep 20",
@@ -24,7 +24,7 @@ events.on("push", () => {
     "docker images",
     "docker ps"
 
-  ];
+];
 
 
   job.run();
