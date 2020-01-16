@@ -6,8 +6,7 @@ events.on("push", () => {
   job.privileged = true;
   job.tasks = [
     "sudo su",
-    "sudo update-alternatives --set iptables /usr/sbin/iptables-legacy",
-    "sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy",
+    "/sbin/iptables -w -t nat -n -L DOCKER",
     "sleep 15",
     "dockerd &",
     "sleep 5",
