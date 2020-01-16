@@ -2,7 +2,7 @@
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
 events.on("push", () => {
-  var job = new Job("dockerbuild", "docker:dind");
+  var job = new Job("job", "docker:dind");
   job.privileged = true;
 //  job.storage.enabled = true;
   job.env = {
