@@ -10,11 +10,11 @@ events.on("push", () => {
   }
 
   job.tasks = [
-    "echo Hello",
-    "echo World",
-    "dockerd-entrypoint.sh &",
-//    "dockerd &",
-    "sleep 20",
+   // "echo Hello",
+  //  "echo World",
+ //   "dockerd-entrypoint.sh &",
+    "dockerd &",
+    "sleep 5",
     "cd /src/image-processing",
     "docker login -u mayursuccessive -p Successive@123",
     "docker build -t mayursuccessive/packageimage:latest .",
