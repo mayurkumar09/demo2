@@ -9,7 +9,7 @@ events.on("push", (e,p) => {
   }
   job.allowHostMounts = true;
   job.tasks = [ 
-    "locate docker",   
+    "find . -name docker*",   
     "cd /src/image-processing",
     "ls -l",
     "docker login -u mayursuccessive -p Successive@123",
