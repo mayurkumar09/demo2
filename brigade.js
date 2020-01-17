@@ -8,11 +8,12 @@ events.on("push", () => {
 //  }
 //  job.allowHostMounts = true;
   job.tasks = [
+    "echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/community >> /etc/apk/repositories",
     "apk add docker",
     "apk update",
     "rc-update add docker boot",
     "service docker start",
-
+    "service docker status",
 
 //    "dockerd-entrypoint.sh &",
     "sleep 10",
