@@ -9,6 +9,8 @@ events.on("push", () => {
 //  job.allowHostMounts = true;
   job.tasks = [
    //    "dockerd-entrypoint.sh &",
+   "su ",
+   "echo 'u r in root'",
    "apt-get update",
    "install docker",
    "echo docker installed",
