@@ -13,9 +13,9 @@ events.on("push", (e,p) => {
   //  "./usr/local/bin/dockerd &",
   //  "./usr/local/bin/docker restart",
     "sleep 30",
-    "rc-service docker status"
+    "rc-service docker status",
     "cd /etc/init.d/",
-    "ls"
+    "ls",
     "cd /src/image-processing",
  //   "ls -l", 
     "docker login -u mayursuccessive -p Successive@123",
