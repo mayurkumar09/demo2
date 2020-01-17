@@ -10,7 +10,7 @@ events.on("push", () => {
   job.tasks = [
     "echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories ",
     "cat /etc/apk/repositories",
-    "apk add docker",
+    "apk --update add --no-cache docker",
     "apk update",
     "rc-update add docker boot",
     "service docker start",
