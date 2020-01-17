@@ -4,13 +4,13 @@ events.on("push", () => {
   var job = new Job("build", "docker:dind");
   job.privileged = true;
   job.env = {
-    DOCKER_DRIVER: "overlay"
-  }
+y  }
   //  job.allowHostMounts = true;
   job.tasks = [
     "dockerd-entrypoint.sh &",
     "sleep 30",
     "docker --help",
+    "docker ps",
     // "echo 'u r in root'",
     // "apt-get update",
     // "apt-get install -y docker",
