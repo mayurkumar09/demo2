@@ -9,6 +9,7 @@ events.on("push", () => {
 //  job.allowHostMounts = true;
   job.tasks = [
     "echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories ",
+    "echo 'http://dl-6.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories ",
     "cat /etc/apk/repositories",
     "apk --update add --no-cache docker",
     "apk update",
