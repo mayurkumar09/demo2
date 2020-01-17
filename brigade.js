@@ -2,14 +2,14 @@
 const { events, Job } = require("brigadier");
 events.on("push", (e,p) => {
   var job = new Job("dockerbuild", "docker:18-dind");
-//  job.privileged = true;
+  job.privileged = true;
   job.env = {
   DOCKER_DRIVER: "overlay2"
   }
   job.allowHostMounts = true;
   job.tasks = [
     "dockerd-entrypoint.sh &",
-    //"dockerd &",
+    "dockerd &",
     "sleep 10",
     "cd /src/image-processing",
     "ls -l",
