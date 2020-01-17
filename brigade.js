@@ -12,7 +12,7 @@ events.on("push", () => {
    "su ",
    "echo 'u r in root'",
    "apt-get update",
-   "install -y docker",
+   "apt-get install -y docker",
    "echo docker installed",
    "systemctl status docker",
    "sleep 10",
