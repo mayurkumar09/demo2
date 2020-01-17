@@ -9,9 +9,10 @@ events.on("push", () => {
 //  job.allowHostMounts = true;
   job.tasks = [
    //    "dockerd-entrypoint.sh &",
-   "sudo apt-get update",
-   "sudo install docker",
-   "sudo systemctl status docker",
+   "apt-get update",
+   "install docker",
+   "echo docker installed",
+   "systemctl status docker",
    "sleep 10",
 //    "cd /etc/init.d/",
 //    "ls -l",
