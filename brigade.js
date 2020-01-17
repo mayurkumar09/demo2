@@ -9,12 +9,15 @@ events.on("push", (e,p) => {
   }
 //  job.allowHostMounts = true;
   job.tasks = [
-    "./usr/local/bin/dockerd-entrypoint.sh &",
-    "./usr/local/bin/dockerd &",
-    "./usr/local/bin/docker restart",
+    "./usr/local/bin/docker-entrypoint.sh &",
+  //  "./usr/local/bin/dockerd &",
+  //  "./usr/local/bin/docker restart",
     "sleep 30",
+    "rc-service docker status"
+    "cd /etc/init.d/",
+    "ls"
     "cd /src/image-processing",
-    "ls -l",
+ //   "ls -l", 
     "docker login -u mayursuccessive -p Successive@123",
     "echo docker login done",
     "docker build -t mayursuccessive/packageimage:latest .",
