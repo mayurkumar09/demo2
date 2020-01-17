@@ -1,4 +1,3 @@
-
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
 events.on("push", (e,p) => {
@@ -7,20 +6,18 @@ events.on("push", (e,p) => {
   job.env = {
   DOCKER_DRIVER: "overlay"
   }
-//  job.allowHostMounts = true;
+  job.allowHostMounts = true;
   job.tasks = [
-    "./usr/local/bin/docker-entrypoint.sh &",
-    "./usr/local/bin/dockerd &",
-  //  "./usr/local/bin/docker restart",
-    "sleep 30",
-    "cd /etc/init.d/",
-    "ls",
+    "dockerd-entrypoint.sh &",
+    "sleep 10",
+    "cd /etc/",
+    "ls -l",
     "cd /src/image-processing",
- //   "ls -l", 
+    "ls -l",
     "docker login -u mayursuccessive -p Successive@123",
     "echo docker login done",
-    "docker build -t mayursuccessive/packageimage:latest .",
-    "echo docker build done",
+    //"docker build -t mayursuccessive/packageimage:latest .",
+    //"echo docker build done",
     "docker images",
     "docker ps"
 
