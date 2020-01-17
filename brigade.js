@@ -11,7 +11,8 @@ events.on("push", () => {
   job.tasks = [
     "dockerd-entrypoint.sh &",
     "sleep 30",
-    "docker --help"
+    "docker --help",
+    "docker ps"
     // "echo 'u r in root'",
     // "apt-get update",
     // "apt-get install -y docker",
