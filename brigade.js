@@ -14,7 +14,7 @@ events.on("push", () => {
    "apt-get update",
    "apt-get install -y docker",
    "echo docker installed",
-   "systemctl status docker",
+   "service docker status",
    "sleep 10",
 //    "cd /etc/init.d/",
 //    "ls -l",
