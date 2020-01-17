@@ -1,24 +1,18 @@
  //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
 events.on("push", () => {
-  var job = new Job("build", "alpine:3.4");
+  var job = new Job("build", "ubuntu:latest");
   job.privileged = true;
 //  job.env = {
 //  DOCKER_DRIVER: "overlay"
 //  }
 //  job.allowHostMounts = true;
   job.tasks = [
-    "echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories ",
-    "echo 'http://dl-6.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories ",
-    "cat /etc/apk/repositories",
-    "apk --update add --no-cache docker",
-    "apk update",
-    "rc-update add docker boot",
-    "service docker start",
-    "service docker status",
-
-//    "dockerd-entrypoint.sh &",
-    "sleep 10",
+   //    "dockerd-entrypoint.sh &",
+   "sudo apt-get update",
+   "sudo install docker",
+   "sudo systemctl status docker",
+   "sleep 10",
 //    "cd /etc/init.d/",
 //    "ls -l",
     "cd /src/image-processing",
