@@ -1,14 +1,20 @@
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
-events.on("push", (e,p) => {
-  var job = new Job("build", "docker:18-dind");
+events.on("push", () => {
+  var job = new Job("build", "alpine:3.4");
   job.privileged = true;
 //  job.env = {
 //  DOCKER_DRIVER: "overlay"
 //  }
 //  job.allowHostMounts = true;
   job.tasks = [
-    "dockerd-entrypoint.sh &",
+    "apk add docker",
+    "apk update",
+    "rc-update add docker boot",
+    "service docker start",
+
+
+//    "dockerd-entrypoint.sh &",
     "sleep 10",
 //    "cd /etc/init.d/",
 //    "ls -l",
