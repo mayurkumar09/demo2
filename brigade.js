@@ -8,8 +8,8 @@ events.on("push", (e,p) => {
   }
   job.allowHostMounts = true;
   job.tasks = [
-    //"dockerd-entrypoint.sh &",
-    "dockerd &",
+    "dockerd-entrypoint.sh &",
+    //"dockerd &",
     "sleep 10",
     "cd /src/image-processing",
     "ls -l",
