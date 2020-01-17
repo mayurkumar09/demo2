@@ -2,17 +2,17 @@
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
 events.on("push", () => {
-  var job = new Job("build", "docker:dind");
-  job.privileged = true;
-  job.env = {
-    DOCKER_DRIVER: "overlay"
-  }
+  var job = new Job("buildfinal", "node");
+  // job.privileged = true;
+  // job.env = {
+  //   DOCKER_DRIVER: "overlay",
+  // }
   //  job.allowHostMounts = true;
   job.tasks = [
-    "dockerd-entrypoint.sh &",
-    "sleep 30",
-    "docker --help",
-    "curl https://www.google.com/"
+      "cd /src",
+      "cd /image-processing",
+      "ls -lart",
+      "npm install"
     // "echo 'u r in root'",
     // "apt-get update",
     // "apt-get install -y docker",
