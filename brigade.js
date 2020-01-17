@@ -8,8 +8,9 @@ events.on("push", (e,p) => {
   DOCKER_DRIVER: "overlay2"
   }
   job.allowHostMounts = true;
-  job.tasks = [ 
-    "find . -name docker*",   
+  job.tasks = [
+    "./usr/local/bin/dockerd-entrypoint.sh &",
+    "sleep 10",
     "cd /src/image-processing",
     "ls -l",
     "docker login -u mayursuccessive -p Successive@123",
