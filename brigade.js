@@ -10,7 +10,7 @@ y  }
     "dockerd-entrypoint.sh &",
     "sleep 30",
     "docker --help",
-    "docker ps",
+    "docker ps"
     // "echo 'u r in root'",
     // "apt-get update",
     // "apt-get install -y docker",
