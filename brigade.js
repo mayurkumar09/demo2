@@ -6,7 +6,7 @@ events.on("push", () => {
   job.env = {
   DOCKER_DRIVER: "overlay"
   }
-
+  job.allowHostMounts = true;
   job.tasks = [
     "dockerd-entrypoint.sh &",
 
