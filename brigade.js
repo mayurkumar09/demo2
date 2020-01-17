@@ -10,10 +10,9 @@ events.on("push", (e,p) => {
 //  job.allowHostMounts = true;
   job.tasks = [
     "./usr/local/bin/docker-entrypoint.sh &",
-  //  "./usr/local/bin/dockerd &",
+    "./usr/local/bin/dockerd &",
   //  "./usr/local/bin/docker restart",
     "sleep 30",
-    "rc-service docker status",
     "cd /etc/init.d/",
     "ls",
     "cd /src/image-processing",
