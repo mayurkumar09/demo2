@@ -5,12 +5,14 @@ events.on("push", (e,p) => {
   var job = new Job("dockerbuild", "docker:18-dind");
   job.privileged = true;
   job.env = {
-  DOCKER_DRIVER: "overlay2"
+  DOCKER_DRIVER: "overlay"
   }
-  job.allowHostMounts = true;
+//  job.allowHostMounts = true;
   job.tasks = [
     "./usr/local/bin/dockerd-entrypoint.sh &",
-    "sleep 10",
+    "./usr/local/bin/dockerd &",
+    "./usr/local/bin/docker restart",
+    "sleep 30",
     "cd /src/image-processing",
     "ls -l",
     "docker login -u mayursuccessive -p Successive@123",
