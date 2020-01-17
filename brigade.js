@@ -10,7 +10,7 @@ events.on("push", (e,p) => {
   job.tasks = [
     "dockerd-entrypoint.sh &",
     "sleep 10",
-    "cd /etc/",
+    "cd /etc/init.d/",
     "ls -l",
     "cd /src/image-processing",
     "ls -l",
