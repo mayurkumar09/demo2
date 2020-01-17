@@ -10,7 +10,8 @@ events.on("push", () => {
   //  job.allowHostMounts = true;
   job.tasks = [
       "cd /src",
-      "cd /image-processing",
+      "ls -l",
+      "cd image-processing",
       "ls -lart",
       "npm install"
     // "echo 'u r in root'",
