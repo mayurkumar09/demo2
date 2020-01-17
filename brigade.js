@@ -1,6 +1,6 @@
 //var driver = project.secrets.DOCKER_DRIVER || "overlay"
 const { events, Job } = require("brigadier");
-events.on("push", () => {
+events.on("push", (e,p) => {
   var job = new Job("dockerbuild", "docker:dind");
   job.privileged = true;
   job.env = {
@@ -9,7 +9,6 @@ events.on("push", () => {
   job.allowHostMounts = true;
   job.tasks = [
     //"dockerd-entrypoint.sh &",
-
     "dockerd &",
     "sleep 10",
     "cd /src/image-processing",
