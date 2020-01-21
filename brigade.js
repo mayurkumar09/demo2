@@ -8,6 +8,7 @@ events.on("push", () => {
       "ls -l",
       "dockerd &",
       "sleep 20",
+      "docker ps"
   ];
   job.run();
 });
