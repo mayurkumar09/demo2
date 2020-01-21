@@ -6,7 +6,7 @@ events.on("push", () => {
   job.tasks = [
       "cd /src",
       "ls -l",
-      "dockerd-entrypoint.sh &",
+      "dockerd &",
       "sleep 20",
   ];
   job.run();
