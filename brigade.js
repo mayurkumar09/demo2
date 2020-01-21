@@ -4,7 +4,7 @@ const { events, Job } = require("brigadier");
 events.on("push", () => {
   var job = new Job("buildfinal", "docker:dind");
   job.privileged = true;
-  job.storage.enabled = true;
+//  job.storage.enabled = true;
   job.env = {
     DOCKER_DRIVER: "overlay",
   }
@@ -13,8 +13,8 @@ events.on("push", () => {
       "cd /src",
       "ls -l",
       "dockerd-entrypoint.sh &",
-      "sleep 200",
-      "docker ps",
+      "sleep 20",
+      "docker ps"
     // "echo 'u r in root'",
     // "apt-get update",
     // "apt-get install -y docker",
